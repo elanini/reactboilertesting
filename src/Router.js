@@ -17,7 +17,7 @@ const App = React.createClass({
         {/* change the <a>s to <Link>s */}
         <ul>
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/todo">TodoBox</Link></li>
+          <li><Link to="/todo">Todo</Link></li>
         </ul>
 
         {/*
@@ -29,13 +29,16 @@ const App = React.createClass({
     )
   }
 })
-
-  render(( 
+export default class Router extends Component {
+  render() {
+    return (
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={Home} />
+          <IndexRoute component={About} />
           <Route path="about" component={About} />
           <Route path="todo" component={TodoBox}/>
         </Route>
       </Router>
-    ), document.getElementById('root'))
+    );
+  }
+}
